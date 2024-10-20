@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rfc.css">
+    <title>Generar RFC Simple</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Generar RFC</h1>
+        <input type="text" id="apellidoPaterno" placeholder="Apellido Paterno"><br>
+        <input type="text" id="apellidoMaterno" placeholder="Apellido Materno"><br>
+        <input type="text" id="nombre" placeholder="Nombre"><br>
+
+        <input type="text" id="fechaNacimiento" placeholder="Fecha de Nacimiento (DD-MM-YYYY)"><br>
+
+        <button onclick="generarRFC()">Generar RFC</button>
+
+        <h2>Tu RFC es:</h2>
+        <p id="rfcResultado"></p>
+    </div>
+
+    <script>
+        function generarRFC() {
+            var apellidoPaterno = document.getElementById("apellidoPaterno").value.toUpperCase();
+            var apellidoMaterno = document.getElementById("apellidoMaterno").value.toUpperCase();
+            var nombre = document.getElementById("nombre").value.toUpperCase();
+            var fechaNacimiento = document.getElementById("fechaNacimiento").value.split("-");
+            if (fechaNacimiento.length !== 3) {
+                document.getElementById("rfcResultado").innerText = "Formato de fecha incorrecto. Usa DD-MM-YYYY.";
+                return;
+            }
+            var rfc = apellidoPaterno[0] + apellidoPaterno.match(/[AEIOU]/)[0] + 
+                      apellidoMaterno[0] + nombre[0];
+            var dia = fechaNacimiento[0];   
+            var mes = fechaNacimiento[1];   
+            var año = fechaNacimiento[2].slice(2, 4);
+            rfc += año + mes + dia;
+            var numerosAleatorios = Math.floor(Math.random() * 900) + 100;
+            rfc += numerosAleatorios;
+            document.getElementById("rfcResultado").innerText = rfc;
+        }
+    </script>
+</body>
+</html>

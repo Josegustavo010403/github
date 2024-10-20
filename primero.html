@@ -6,6 +6,24 @@
 		<link rel="stylesheet" href="transicion.js">
 		<script src="https://kit.fontawesome.com/0e999d9397.js" crossorigin="anonymous"></script>
 	</head>
+	<script>
+		function actualizarReloj() {
+			const now = new Date();
+			const second = now.getSeconds();
+			const minute = now.getMinutes();
+			const hour = now.getHours();
+	
+			const secondDeg = (second / 60) * 360;
+			const minuteDeg = (minute / 60) * 360 + (second / 60) * 6;
+			const hourDeg = (hour / 12) * 360 + (minute / 60) * 30;
+	
+			document.getElementById('second').setAttribute('transform', `rotate(${secondDeg} 50 50)`);
+			document.getElementById('minute').setAttribute('transform', `rotate(${minuteDeg} 50 50)`);
+			document.getElementById('hour').setAttribute('transform', `rotate(${hourDeg} 50 50)`);
+		}
+		setInterval(actualizarReloj, 1000);
+		actualizarReloj();
+	</script>
 	<body >
 		<div id="contenido">
 			<div class="carrusel" id="carrusel-1">
@@ -48,6 +66,22 @@
 				</div>
 			</div>
 		</div>
+		<div id="reloj-analogico">
+			<svg id="clock" width="200" height="200" viewBox="0 0 100 100">
+				<circle cx="50" cy="50" r="48" stroke="black" stroke-width="2" fill="white"/>
+				<line id="hour" x1="50" y1="50" x2="50" y2="30" stroke="black" stroke-width="2"/>
+				<line id="minute" x1="50" y1="50" x2="50" y2="20" stroke="black" stroke-width="1.5"/>
+				<line id="second" x1="50" y1="50" x2="50" y2="15" stroke="red" stroke-width="1"/>
+				<circle cx="50" cy="50" r="1" fill="black"/>
+			</svg>
+		</div>
+		<div class="menu-flotante">
+			<ul>
+				<li><a href="adivina.html">Adivina un Numero</a></li>
+				<li><a href="raiz.html">Formula General</a></li>
+				<li><a href="RFC.html">RFC</a></li>
+			</ul>
+		</div>		
 		<center>
 			<h1 style="color: red;font-weight: bold;">Tecnologico Nacional de Mexico</h1>
 			<h2>Instituto Tecnologico de Tehuacan</h2>
@@ -91,6 +125,7 @@
 			</tr>
 
 		</table>
+		
 </center>
 		<A href="Formulario.html">click para ir a la pagina del formulario</A>
 	</div>

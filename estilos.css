@@ -1,6 +1,7 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    cursor: url(cursor.png), auto;
 }
 h3{
     color: #ff0000;
@@ -66,4 +67,47 @@ img{
     width: 64px; height: 64px;
     background: url(css_sprites.png) -94px -10px;
 }
+#reloj-analogico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#clock {
+    border-radius: 50%;
+    background-color: white;
+}
+/* Estilo para el menú flotante */
+.menu-flotante {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 100;
+}
+
+.menu-flotante ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-flotante ul li {
+    margin: 10px 0;
+}
+
+.menu-flotante ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+}
+
+.menu-flotante ul li a:hover {
+    text-decoration: underline;
+}
+
 

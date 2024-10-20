@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adivina.css">
+    <title>Adivina un número</title>
+    <script>
+        let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        function adivinaNumero() {
+            let numeroUsuario = parseInt(document.getElementById("inputNumero").value);
+            let mensaje = "";
+            if (numeroUsuario === numeroAleatorio) {
+                mensaje = "¡Adivinaste!";
+            } else if (numeroUsuario > numeroAleatorio) {
+                mensaje = "Te pasaste, intenta con un número menor.";
+            } else {
+                mensaje = "Te falta, intenta con un número mayor.";
+            }
+            document.getElementById("mensaje").innerText = mensaje;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Juego: Adivina un número</h1>
+        <p>Adivina un número entre 1 y 100:</p>
+        <input type="number" id="inputNumero" placeholder="Introduce un número">
+        <button onclick="adivinaNumero()">Adivinar</button>
+        <p id="mensaje"></p>
+    </div>
+</body>
+</html>
